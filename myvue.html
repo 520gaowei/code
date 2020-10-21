@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Kvue2.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="app">
+          <div v-html="message">123456</div>
+		  <input v-model="message" />{{message}}
+    </div>
+</body>
+<script>
+    // 一.如何把数据渲染（编译）到视图上？？
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "<h1>数据</h1>",
+        }
+    })
+
+    // {message:"数据"}---》this._data 
+     // 二.如何实现数据响应式？？ 数据是否被更改？--》1.观察（劫持）数据 修改了；2.拦截修改 ---》触发视图更新；（观察者模式触发视图更新）--->有关联---发布订阅;
+    //  setTimeout(() => {
+    //     console.log("settimeout",vm._data); 
+    //     // vm._data.message = "修改的值";
+    //     vm._data.message = "修改的数据"
+    //     // console.log(vm);
+    // }, 1000);
+
+</script>
+
+</html>
